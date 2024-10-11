@@ -10,9 +10,10 @@
   --dark:#333;
   --secondary:#0d0d0d;
   --gray:#ddd;
+  --white:#faf5f5;
 }
 a{
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
   text-decoration: none;
   color: var(--dark);
 }
@@ -21,8 +22,11 @@ body{
 }
 p{
   font-family:'Cormorant Garamond' ;
-  margin: .625rem .625rem;
+  margin: 1rem 0 ;
 }
+img{
+  max-width: 100%;
+  }
 .btn{
   
     padding: 0.8rem ;
@@ -45,8 +49,13 @@ header{
 
 
 }
+header .logo{
+  font-size: 2rem;
+    font-family: "Staatliches", cursive;
+}
 header a{
 display: block;
+
 }
 header ul{
     display: flex;
@@ -54,12 +63,12 @@ header ul{
      
 }
 .connex-col{
-  color: red;
+  color: var(--primary);
   text-decoration: none;
 }
 .btn-color{
-  color: red;
-  border: 1px solid red ;
+  color: var(--primary);
+  border: 1px solid var(--primary) ;
   background-color: white;
 }
 
@@ -79,7 +88,7 @@ nav{
 }
 nav a {
     text-decoration: none;
-    color: black;
+    color: var(--secondary);
     font-size: 14px;  
     font-family:'Cormorant Garamond' ;
     
@@ -94,50 +103,56 @@ nav a {
 }
 .articles h3{
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 549;
 }
-img{
-max-width: 100%;
-}
-.article1{
+
+.article:first-child{
   grid-column: 1 / 2;
   grid-row: 1 / 4;
 }
-
-.article2  {
-  display: grid;
-    column-gap: 10px;
-    grid-template-columns: 80px auto;
-    grid-template-rows: 80px;
-    grid-auto-rows: auto;
+.article h3 {
+  padding-top: 0.5rem;
 }
-.article3  {
-  display: grid;
-    column-gap: 10px;
-    grid-template-columns: 80px auto;
-    grid-template-rows: 80px;
-    grid-auto-rows: auto;
-}
-.article4  {
-  display: grid;
-    column-gap: 10px;
-    grid-template-columns: 80px auto;
-    grid-template-rows: 80px;
-    grid-auto-rows: auto;
-}
-
-
-.article5{
+.article:last-child{
   grid-column: 3/4;
   grid-row: 1/4;
 }
+
+.article-small {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 80px auto;
+    grid-template-rows: 80px;
+    grid-auto-rows: auto;
+}
+
 .article-content {
   grid-column: span 2;
-  margin-bottom: 10px 0;
+  margin-bottom: 10px ;
+}
+.article-small .article-content{
+  grid-column: span 2;
+  max-height: 6rem;
+  overflow: hidden;
+}
+.article-small p{
+  margin: 0.5rem 0;
+}
+.article-author{
+    grid-column: span 2;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 .date-content{
   grid-column: 1 / 3;
-  margin-top: 1rem;
+font-size: 0.8rem;
+}
+.fa-solid{
+  margin-left: 1rem;
+  
+}
+.fa-star{
+  color: rgb(112, 107, 107);
 }
 .line1{
 margin-bottom: 1rem;
@@ -145,18 +160,119 @@ color: rgb(233, 228, 228);
 }
 /*^contact*/
 .contact{
-  background-color:#EEE;
+  background-color:var(--gray);
   display: grid;
-  grid-template-columns: 200px 1fr 1fr 1fr;
-  
+  margin: 2rem 0;
+  grid-template-columns: 200px 1fr auto 1fr;
+  grid-template-rows: 1fr auto auto auto 1fr;
+  grid-template-areas: 
+  "img . . ."
+  "img . h1 ."
+  "img . p ."
+  "img . form ."
+  "img . . ." ;
+}
+.contact img{
+  grid-area: img;
   
 }
-/*^Other content*/
+.contact h1{
+grid-area: h1;
+font-size: 2.5rem;
+font-weight: normal;
+
+}
+.contact p{
+grid-area: p;
+}
+.contact form{
+grid-area: form;
+
+}
+.contact form input{
+  border: 0;
+  border-bottom: 1px solid var(--secondary);
+  padding: 0.5rem 0;
+  background: var(--gray);
+  margin-right: 2rem;
+  
+  }
+  .btn-contact{
+    
+    padding: 0.6rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0;
+  }
+  .btn-dark{
+    color: var(--white);
+    background: var(--secondary);
+  
+  }
+
+
+
+
+
+
+
+
+/*^technologie*/
 .all-content{
   display: flex;
   align-items: start;
 }
-.technologie{
-  display: flex;
-  flex-direction: column;
+.underline{
+padding-bottom: 1rem;
+border-bottom: 1px solid rgb(186, 184, 184);
+margin: 1.7rem 0;
+}
+.article-tech article{
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "h3 img"
+  "p img"
+  "author img"
+  "date .";
+  padding: 0.5rem;
+}
+.article-tech article h3{
+  grid-area: h3;
+}
+.article-tech article p{
+  grid-area: p;
+  margin: 0.2rem 0;
+}
+.article-tech article .article-author{
+  grid-area: author;
+}
+.article-tech article .date-article{
+  grid-area: date;
+  font-size: 0.8rem;
+}
+.article-tech article img{
+  grid-area: img;
+}
+/*^Popular*/
+.popular{
+  position: sticky;
+  top: 35px;
+  padding:0 25px;
+}
+.popular ul li{
+  display: grid;
+  grid-template-columns: 70px auto;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  
+}
+.popular ul li .date-article{
+  font-size: 0.8rem;
+}
+.popular ul li .number{
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.875rem;
 }
