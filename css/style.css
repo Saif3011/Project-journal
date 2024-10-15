@@ -163,6 +163,7 @@ color: rgb(233, 228, 228);
   background-color:var(--gray);
   display: grid;
   margin: 2rem 0;
+  padding: 3rem;
   grid-template-columns: 200px 1fr auto 1fr;
   grid-template-rows: 1fr auto auto auto 1fr;
   grid-template-areas: 
@@ -172,6 +173,9 @@ color: rgb(233, 228, 228);
   "img . form ."
   "img . . ." ;
 }
+/* .contact-img{
+  background: url(../img/ads.png) center center/cover;
+} */
 .contact img{
   grid-area: img;
   
