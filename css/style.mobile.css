@@ -1,6 +1,19 @@
-@media(max-width:320px){
+@media (max-width: 500px) {
+  .article {
+    padding-left: 0.625rem;
+  }
+  .article:last-child {
+    padding-right: 0.625rem;
+  }
 
-    body{
-        background-color: green;
-    }
+  .btn-contact {
+    margin-top: 1.5rem;
+  }
+  .article-small .article-content {
+    padding-top: 1.7rem;
+    max-height: 8rem;
+  }
+  .article-tech article p{
+    margin: 1rem 0;
+  }
 }
